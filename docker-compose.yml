@@ -1,0 +1,21 @@
+version: '3'
+services:
+  api:
+    image: rust:latest
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+    command: cargo run
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
