@@ -1,7 +1,9 @@
 version: '3'
 services:
-  api:
-    image: rust:latest
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
     working_dir: /usr/src/app
     volumes:
       - .:/usr/src/app

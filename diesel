@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Check if the container is running
+if [ "$(docker ps -q -f name=app)" ]; then
+    # Run Diesel commands inside the container
+    docker-compose exec app diesel "$@"
+else
+    echo "Error: API container is not running."
+    exit 1
+fi
