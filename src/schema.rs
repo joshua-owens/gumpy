@@ -5,7 +5,6 @@ diesel::table! {
         id -> Int4,
         distance -> Numeric,
         duration -> Interval,
-        date -> Date,
-        created_at -> Nullable<Timestamp>,
+        created_at -> Timestamp,
     }
 }
